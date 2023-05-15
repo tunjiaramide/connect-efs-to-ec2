@@ -69,27 +69,23 @@ Go into Web_server_one and connect using EC2 instance connect
 
 Run the following commands below: 
 
-sudo mkdir -p /efs/content <!-- Create folder that you will mount the EFS -->
-sudo yum -y install amazon-efs-utils <!-- Install packages for EFS for Amazon linux -->
-sudo nano /etc/fstab <!-- We mount the file system everytime by default -->
-file-system-id:/ /efs/content efs _netdev,tls,iam 0 0  <!-- Replace file-system-id with NFS ID created earlier -->
-
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/linux.png)
-
+sudo mkdir -p /efs/content 
+sudo yum -y install amazon-efs-utils 
+sudo nano /etc/fstab 
+nfs-server-id:/ /efs/content efs _netdev,tls,iam 0 0  
 sudo mount /efs/content
 df -k
 cd /efs/wp-content
+sudo touch testfile.txt 
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/linux_two.png)
-
-sudo touch testfile.txt <!-- It will create the file in the NFS -->
 
 # Configure NFS Server on Web server two and view the file created
 
 sudo yum -y install amazon-efs-utils
 sudo mkdir -p /efs/content
 sudo nano /etc/fstab
-file-system-id:/ /efs/content efs _netdev,tls,iam 0 0 <!-- Replace file-system-id with NFS ID created earlier -->
+nfs-server-id:/ /efs/content efs _netdev,tls,iam 0 0 
 sudo mount /efs/content
 ls -la
 
