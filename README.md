@@ -36,7 +36,7 @@ Remove all available zones not in use, just use 1a and 1b, then remove the defau
 
 Click next and click create
 
-Wait till has fully provisioned, under EFS created, check Network tab to make sure Mount target state has finised creating
+Wait till has fully provisioned, under EFS created, check Network tab to make sure Mount target state has finished creating
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/nfs_four.png)
 
@@ -69,24 +69,34 @@ Go into Web_server_one and connect using EC2 instance connect
 
 Run the following commands below: 
 
-sudo mkdir -p /efs/content 
+sudo mkdir -p /efs/content
+
 sudo yum -y install amazon-efs-utils 
+
 sudo nano /etc/fstab 
+
 nfs-server-id:/ /efs/content efs _netdev,tls,iam 0 0  
+
 sudo mount /efs/content
+
 df -k
+
 cd /efs/wp-content
+
 sudo touch testfile.txt 
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/linux_two.png)
-
-# Configure NFS Server on Web server two and view the file created
+### Configure NFS Server on Web server two and view the file created
 
 sudo yum -y install amazon-efs-utils
+
 sudo mkdir -p /efs/content
+
 sudo nano /etc/fstab
+
 nfs-server-id:/ /efs/content efs _netdev,tls,iam 0 0 
+
 sudo mount /efs/content
+
 ls -la
 
 ![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/linux_three.png)
