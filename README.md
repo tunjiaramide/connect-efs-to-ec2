@@ -54,7 +54,7 @@ Select SG created earlier
 
 Attach the IAM role created earlier and click create
 
-![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/instance_four.png)
+![alt text](https://adetunjiaramide.s3.amazonaws.com/images/aws/instance_three.png)
 
 Launch another EC2 instance, name it Web_server_two and select subnet us-east-1b,
 
