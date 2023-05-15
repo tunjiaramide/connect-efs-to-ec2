@@ -81,7 +81,7 @@ sudo mount /efs/content
 
 df -k
 
-cd /efs/wp-content
+cd /efs/content
 
 sudo touch testfile.txt 
 
@@ -96,6 +96,8 @@ sudo nano /etc/fstab
 nfs-server-id:/ /efs/content efs _netdev,tls,iam 0 0 
 
 sudo mount /efs/content
+
+cd /efs/content
 
 ls -la
 
